@@ -60,6 +60,8 @@ public class Controller implements Initializable {
      ArrayList<User> user =new ArrayList<>();
     @FXML
     private Button btnStock;
+    @FXML
+    private Button logout;
       
 
     /**
@@ -109,6 +111,18 @@ public class Controller implements Initializable {
                 stage.setMaximized(true);
                 stage.show();
     }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+          AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setWidth(1050);
+                stage.setHeight(576);
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                stage.show();
     }
+}
     
 

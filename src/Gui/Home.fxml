@@ -223,6 +223,11 @@
                         <Image url="@../../Image/icons8_Search_52px.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="logout" layoutX="676.0" layoutY="96.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #FFC55C;" text="LogOut" textFill="#bf4214">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>
