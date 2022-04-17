@@ -31,6 +31,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -41,6 +42,7 @@ import javafx.stage.Stage;
  * @author Hazem
  */
 public class LoginController implements Initializable {
+
     Connection cnx = DataSource.getInstance().getCnx();
     ResultSet ResultSet = null;
     @FXML
@@ -50,6 +52,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button btnlogin;
     private ServiceUser userService;
+    @FXML
+    private Button register;
 
     /**
      * Initializes the controller class.
@@ -58,31 +62,81 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         userService = new ServiceUser();
-    }    
-
+    }
 
     @FXML
-    private void btnlogin(ActionEvent event)throws IOException {
-
-        User userVerif = null;
+    private void btnlogin(ActionEvent event) throws IOException {
+        ServiceUser co = new ServiceUser();
+        System.out.println(co.getById().getRoles());
         
+//         String index=co.getById().getRoles();
+//
+//        for (String number: index) {
+//      System.out.println(number);
+//    }
+//        
+       
+       
+       if ( co.getUserBy(tfemail.getText(), tfpassword.getText())){
+           System.out.println(co.getById().getRoles());
+           if (co.getById().getRoles().equals("[\"ROLE_ADMIN\"]") ){
+           
+         AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage.setWidth(1050);
+                stage.setHeight(576);
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                stage.show();
+                System.out.println("jawik behi");
+        }else{
+               System.out.println("mch admin");
+           }}
+       
+       
+       
+        
+       else {
+           System.out.println("nooo");
+       }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+/*amirr
+        User userVerif = null;
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid Fields");
         alert.setHeaderText("Please Correct invalid fields");
-        if(tfpassword.getText().split(" ").length == 0 || tfemail.getText().length() == 0){
-            alert.setContentText("Invalid Password");
+        if (tfpassword.getText().split(" ").length == 0 || tfemail.getText().length() == 0) {
+            alert.setContentText("Invalide credential");
             alert.showAndWait();
-        }else{
-        userVerif = userService.login(tfemail.getText(),tfpassword.getText());
-        AnchorPane root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        } else {
+            userVerif = userService.login(tfemail.getText(), tfpassword.getText());
+
+            System.out.println(tfemail.getText());
+            System.out.println(tfpassword.getText());
+              AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                stage.setWidth(800);
-            stage.setHeight(400);
+                stage.setWidth(1050);
+                stage.setHeight(576);
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.setMaximized(true);
-                stage.show();}
+                stage.show();
+                }
+          
+        amirr */
 
 //        if(userVerif == null){
 //            alert.setContentText("User with email:"+tfemail.getText()+" notFound");
@@ -105,13 +159,8 @@ public class LoginController implements Initializable {
 ////            }else{
 ////                HomeController.getInstance().loadHome();
 ////            }
+    }
 
-        }
-        
-    
-       
-    
-    
 //    private String logIn() {
 //       String status = "Success";
 //        String email = tfemail.getText();
@@ -165,4 +214,19 @@ public class LoginController implements Initializable {
 //        }
 //    }
 //    
+    private void btnsignup(KeyEvent event) {
+    }
+
+    @FXML
+    private void register(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setWidth(273);
+        stage.setHeight(493);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
 }

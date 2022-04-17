@@ -23,11 +23,11 @@ import javafx.stage.Stage;
  * @author Hazem
  */
 public class JavaFixAuth extends Application {
-    
+    public static int loggedInID;
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Gui/HomeStock.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Gui/Login.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -41,6 +41,10 @@ public class JavaFixAuth extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+     
+     
+        
+        
 //        User d =new User("ay","+21699999999","hazem@e.e","haze123","image");
 //        User f =new User(5,"dude","+21611111111","b@b.b","hazem123","image");
 //        ServiceUser serv = new ServiceUser();

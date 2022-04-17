@@ -12,12 +12,13 @@
     <children>
         <ImageView fitHeight="31.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../../../Pictures/javafix/pic.png" />
+                <Image url="@../../Image/pic.png" />
             </image>
             <HBox.margin>
                 <Insets left="10.0" />
             </HBox.margin>
         </ImageView>
+      <Label fx:id="tfid" disable="true" text="id" />
         <Label fx:id="tfusername" prefHeight="17.0" prefWidth="101.0" text="KeepToo" textFill="#b7c3d7" />
         <Label fx:id="tfemail" prefHeight="17.0" prefWidth="108.0" text="JFK" textFill="#b7c3d7">
             <HBox.margin>
@@ -34,7 +35,7 @@
                 <Insets />
             </HBox.margin>
         </Label>
-        <Button fx:id="tfis_expired" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Bann">
+        <Button fx:id="tfis_expired" mnemonicParsing="false" onAction="#Delete" prefHeight="10.0" prefWidth="60.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Bann">
             <HBox.margin>
                 <Insets />
             </HBox.margin>

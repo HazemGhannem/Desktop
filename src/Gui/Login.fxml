@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="203.0" fitWidth="201.0" layoutX="65.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Pictures/yes.png" />
+                        <Image url="@../../Image/yes.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="101.0" layoutY="101.0" prefHeight="59.0" prefWidth="146.0" style="-fx-background-color: transparent;" text="FlyFood" textAlignment="JUSTIFY" textFill="#e8e1e1" textOverrun="CENTER_ELLIPSIS">
@@ -92,7 +92,7 @@
                   </Button>
                   <ImageView fitHeight="101.0" fitWidth="148.0" layoutX="103.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Pictures/logo.png" />
+                        <Image url="@../Image/logo.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="65.0" layoutY="440.0" style="-fx-background-color: transparent;" text="Forget Password !! " textAlignment="JUSTIFY" textFill="DARKORANGE">
@@ -102,14 +102,19 @@
                   </Label>
                   <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="191.0" layoutY="492.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Pictures/javafix/pngegg%20(3).png" />
+                        <Image url="@../../Image/pngegg%20(3).png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="241.0" layoutY="498.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Pictures/javafix/pngegg%20(4).png" />
+                        <Image url="@../../Image/pngegg%20(4).png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="register" layoutX="64.0" layoutY="542.0" mnemonicParsing="false" onAction="#register" style="-fx-background-color: transparent;" text="SignUp" textFill="DARKORANGE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </center>

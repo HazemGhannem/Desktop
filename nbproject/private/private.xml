@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/RegisterController.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/ServiceStock.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Models/Stock.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/HomeStock.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/StockAddController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/ItemController.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/javafixauth/JavaFixAuth.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/Controller.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/ItemStockController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/LoginController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/Register.fxml</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/ServiceUser.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Models/User.java</file>
         </group>
     </open-files>
 </project-private>

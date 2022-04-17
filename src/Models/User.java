@@ -58,6 +58,12 @@ public class User {
         this.is_verified = is_verified;
         this.is_expired = is_expired;
     }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+    
     
 
     public String getRoles() {

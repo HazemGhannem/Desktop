@@ -14,7 +14,7 @@ import java.util.List;
 public interface Iservice <T>{
     
     public void ajouter(T t);
-    public T getById(int id);
+    //public T getById(int id);
     public List<T> getAll();
     public void modifier(T t);
     public void supprimer(T t);

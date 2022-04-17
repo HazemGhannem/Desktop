@@ -57,7 +57,7 @@ public class Controller implements Initializable {
     private VBox pnItems;
 
      ServiceUser userService = new ServiceUser();;
-      ArrayList<User> user =new ArrayList<>();
+     ArrayList<User> user =new ArrayList<>();
     @FXML
     private Button btnStock;
       
@@ -79,7 +79,7 @@ public class Controller implements Initializable {
                 itemcontroller.getbtn().setOnAction(new EventHandler() {
                      @Override
                     public void handle(Event event) {
-                        //userService.Bann(user.get(i));
+                        itemcontroller.Delete();
                     }
                 });
                 

@@ -27,7 +27,7 @@
             <Ellipse fill="#f2f3f5" layoutX="143.0" layoutY="266.0" radiusX="99.0" radiusY="83.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <ImageView fitHeight="102.0" fitWidth="152.0" layoutX="68.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Pictures/logo.png" />
+                  <Image url="@../../Image/logo.png" />
                </image>
             </ImageView>
             <Label layoutX="67.0" layoutY="66.0" prefHeight="84.0" prefWidth="152.0" text="FlyFood" textAlignment="JUSTIFY" textFill="#eee8e8">

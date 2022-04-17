@@ -13,6 +13,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -77,6 +79,12 @@ public class HomeStock implements Initializable {
                 HBox hbox= fxmlloader.load();
                 ItemController itemcontroller = fxmlloader.getController();
                 itemcontroller.SetdataStock((Stock.get(i)));
+                  itemcontroller.getbtn().setOnAction(new EventHandler() {
+                     @Override
+                    public void handle(Event event) {
+                        itemcontroller.DeleteStock();
+                    }
+                });
                 
                 pnItems.getChildren().add(hbox);
             
@@ -93,8 +101,16 @@ public class HomeStock implements Initializable {
     }
 
     @FXML
-    private void AddStock(ActionEvent event)  {
+    private void AddStock(ActionEvent event) throws IOException  {
        
+     AnchorPane root = FXMLLoader.load(getClass().getResource("StockAdd.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setWidth(588);
+            stage.setHeight(493);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
     }
 
     @FXML

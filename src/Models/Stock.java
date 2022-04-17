@@ -16,6 +16,21 @@ public class Stock {
     public Stock() {
     }
 
+    public Stock(String Name, int quantity) {
+       
+        this.Name = Name;
+        this.quantity = quantity;
+    }
+
+    public Stock(String Name, int quantity,int rest_q ) {
+        this.Name = Name;
+        this.quantity = quantity;
+        
+        this.rest_q = rest_q;
+    }
+    
+    
+
     public Stock(int id, int rest_q, int quantity, String Name) {
         this.id = id;
         this.rest_q = rest_q;

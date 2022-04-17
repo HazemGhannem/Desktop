@@ -71,7 +71,7 @@ public class RegisterController implements Initializable {
             userService.ajouter(user);
             AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setWidth(800);
+            stage.setWidth(600);
             stage.setHeight(400);
             Scene scene = new Scene(root);
             stage.setScene(scene);
