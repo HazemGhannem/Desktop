@@ -5,12 +5,10 @@
  */
 package Gui;
 
+import Models.Stock;
 import Models.User;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -66,7 +64,13 @@ public class ItemController implements Initializable {
        //u.setIs_expired(Boolean.parseBoolean(tfis_expired.getText()));
 
     }
+    public void SetdataStock(Stock u) {
+        tfemail.setText(String.valueOf(u.getQuantity()));
+        tfusername.setText(u.getName());
+        tftelephone.setText(String.valueOf(u.getRest_q()));
 
+    }
+   
    
 
 }

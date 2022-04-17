@@ -77,6 +77,8 @@ public class LoginController implements Initializable {
         userVerif = userService.login(tfemail.getText(),tfpassword.getText());
         AnchorPane root = FXMLLoader.load(getClass().getResource("Register.fxml"));
                 Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage.setWidth(800);
+            stage.setHeight(400);
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.setMaximized(true);
