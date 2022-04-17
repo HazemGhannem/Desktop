@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,8 +28,8 @@ public class ServiceUser implements Iservice<User> {
     @Override
     public void ajouter(User t) {
         try {
-            String req = "INSERT INTO `user` (`username`, `email`,`password`,`telephone`,`image`) VALUES ('" +t.getUsername() + "', '" 
-                    + t.getEmail()+"', '" + t.getPassword()+"', '"+ t.getTelephone()+"', '" +t.getImage() + "')";
+            String req = "INSERT INTO `user` (`username`, `email`,`password`,`telephone`) VALUES ('" +t.getUsername() + "', '" 
+                    + t.getEmail()+"', '" + t.getPassword()+"', '"+ t.getTelephone()  + "')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -54,6 +56,25 @@ public class ServiceUser implements Iservice<User> {
                 p.setImage(rs.getString("image"));
                 p.setIs_verified(rs.getBoolean("is_verified"));
                 p.setIs_expired(rs.getBoolean("is_expired"));
+               
+                //}  
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    return p;
+    }
+    public User login(String email,String password){
+        String sql = "SELECT * FROM user Where email ="+email+" and password ="+password;
+        User p=new User();
+        
+        try {
+            Statement stm = cnx.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            rs=stm.executeQuery(sql);
+           // while(rs.next()){
+            rs.next();
+               p.setEmail(rs.getString("email"));
+                p.setPassword(rs.getString("password"));
                
                 //}  
         } catch (SQLException ex) {
@@ -103,6 +124,23 @@ public class ServiceUser implements Iservice<User> {
         }
         
     }
+     public void Bann(User t) {
+       PreparedStatement stmt;
+	try {
+
+	    String sql = "UPDATE user SET is_expired=?  WHERE id=?";
+	    stmt = cnx.prepareStatement(sql);
+	    stmt.setBoolean(1, t.isIs_expired());
+            stmt.setInt(2, t.getId());
+	    stmt.executeUpdate();
+              
+            
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+    }
 
     @Override
     public void supprimer(User u) {
@@ -120,3 +158,5 @@ public class ServiceUser implements Iservice<User> {
     }
     
 }
+    
+
