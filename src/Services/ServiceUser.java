@@ -29,8 +29,8 @@ public class ServiceUser implements Iservice<User> {
     @Override
     public void ajouter(User t) {
         try {
-            String req = "INSERT INTO `user` (`username`, `email`,`password`,`telephone`) VALUES ('" + t.getUsername() + "', '"
-                    + t.getEmail() + "', '" + t.getPassword() + "', '" + t.getTelephone() + "')";
+            String req = "INSERT INTO `user` (`username`, `email`,`password`,`telephone`,`image`) VALUES ('" + t.getUsername() + "', '"
+                    + t.getEmail() + "', '" + t.getPassword() + "', '" + t.getTelephone()+"', '"+t.getImage() + "')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
         } catch (SQLException ex) {

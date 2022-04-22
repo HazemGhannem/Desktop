@@ -26,6 +26,7 @@ import javafx.scene.paint.Color;
 import java.sql.ResultSet;
 import javafx.scene.control.Button;
 import java.io.IOException;
+import static javafixauth.JavaFixAuth.loggedInID;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -35,6 +36,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * FXML Controller class
@@ -68,6 +70,7 @@ public class LoginController implements Initializable {
     private void btnlogin(ActionEvent event) throws IOException {
         ServiceUser co = new ServiceUser();
         System.out.println(co.getById().getRoles());
+        String password= DigestUtils.md5Hex(tfpassword.getText());
         
 //         String index=co.getById().getRoles();
 //
@@ -77,8 +80,9 @@ public class LoginController implements Initializable {
 //        
        
        
-       if ( co.getUserBy(tfemail.getText(), tfpassword.getText())){
+       if ( co.getUserBy(tfemail.getText(), password)){
            System.out.println(co.getById().getRoles());
+           System.out.println(loggedInID);
            if (co.getById().getRoles().equals("[\"ROLE_ADMIN\"]") ){
            
          AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
@@ -91,7 +95,14 @@ public class LoginController implements Initializable {
                 stage.show();
                 System.out.println("jawik behi");
         }else{
-               System.out.println("mch admin");
+        AnchorPane root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setWidth(580);
+        stage.setHeight(490);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
            }}
        
        
@@ -221,8 +232,8 @@ public class LoginController implements Initializable {
     private void register(ActionEvent event) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("Register.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setWidth(273);
-        stage.setHeight(493);
+        stage.setWidth(580);
+        stage.setHeight(490);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setMaximized(true);
