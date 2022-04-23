@@ -11,7 +11,7 @@ package Models;
  */
 public class User {
     private int id;
-    private String username,telephone,email,password,image,roles;
+    private String username,telephone,email,password,image,roles,mailcode;
     private boolean is_verified,is_expired;
 
     public User() {
@@ -135,11 +135,20 @@ public class User {
         this.is_expired = is_expired;
     }
 
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", telephone=" + telephone + ", email=" + email + ", password=" + password + ", image=" + image + ", roles=" + roles + ", is_verified=" + is_verified + ", is_expired=" + is_expired + '}';
+    public String getMailcode() {
+        return mailcode;
     }
 
+    public void setMailcode(String mailcode) {
+        this.mailcode = mailcode;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", username=" + username + ", telephone=" + telephone + ", email=" + email + ", password=" + password + ", image=" + image + ", roles=" + roles + ", mailcode=" + mailcode + ", is_verified=" + is_verified + ", is_expired=" + is_expired + '}';
+    }
+
+  
    
     
     

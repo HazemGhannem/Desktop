@@ -17,13 +17,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafixauth.JavaFixAuth;
+import static javafixauth.JavaFixAuth.RestpasswordID;
 
 /**
  *
  * @author Hazem
  */
 public class ServiceUser implements Iservice<User> {
-
+    private Statement st ;
     Connection cnx = DataSource.getInstance().getCnx();
 
     @Override
@@ -241,5 +242,39 @@ public class ServiceUser implements Iservice<User> {
         }
         return false;
     }
-
+    public boolean Password(String password) {
+          PreparedStatement stmt;
+        
+        try {
+            
+           String sql = "UPDATE  user SET password= '"+password+"' WHERE ( id = ? ) ";
+            stmt = cnx.prepareStatement(sql);
+            stmt.setString(1, ""+RestpasswordID);
+           
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    public boolean Nullcodemail() {
+          PreparedStatement stmt;
+        
+        try {
+            
+           String sql = "UPDATE  user SET mailcode= 'NULL' WHERE ( id = ? ) ";
+            stmt = cnx.prepareStatement(sql);
+            stmt.setString(1, ""+RestpasswordID);
+           
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
+   
+    
 }

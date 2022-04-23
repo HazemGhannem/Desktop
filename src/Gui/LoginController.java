@@ -32,6 +32,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -56,6 +57,8 @@ public class LoginController implements Initializable {
     private ServiceUser userService;
     @FXML
     private Button register;
+    @FXML
+    private Button forgetpass;
 
     /**
      * Initializes the controller class.
@@ -231,6 +234,21 @@ public class LoginController implements Initializable {
     @FXML
     private void register(ActionEvent event) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setWidth(580);
+        stage.setHeight(490);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+    private void restpassword(KeyEvent event) {
+    }
+
+    @FXML
+    private void forgetpass(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("RestPassword.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setWidth(580);
         stage.setHeight(490);

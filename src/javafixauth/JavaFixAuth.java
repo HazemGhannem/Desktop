@@ -24,6 +24,7 @@ import javafx.stage.Stage;
  */
 public class JavaFixAuth extends Application {
     public static int loggedInID;
+    public static int RestpasswordID;
     @Override
     public void start(Stage primaryStage) {
         try {

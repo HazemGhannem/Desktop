@@ -78,6 +78,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void btnadd(ActionEvent event) throws IOException {
+        // hash password
         String password= DigestUtils.md5Hex(tfpassword.getText());
         
         FileInputStream fl = new FileInputStream(file);
