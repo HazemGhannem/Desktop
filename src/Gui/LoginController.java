@@ -32,6 +32,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -59,6 +61,9 @@ public class LoginController implements Initializable {
     private Button register;
     @FXML
     private Button forgetpass;
+    @FXML
+    private CheckBox rememberme;
+
 
     /**
      * Initializes the controller class.
@@ -73,60 +78,61 @@ public class LoginController implements Initializable {
     private void btnlogin(ActionEvent event) throws IOException {
         ServiceUser co = new ServiceUser();
         System.out.println(co.getById().getRoles());
-        String password= DigestUtils.md5Hex(tfpassword.getText());
-        
+        String password = DigestUtils.md5Hex(tfpassword.getText());
+
 //         String index=co.getById().getRoles();
 //
 //        for (String number: index) {
 //      System.out.println(number);
 //    }
 //        
-       
-       
-       if ( co.getUserBy(tfemail.getText(), password)){
-           System.out.println(co.getById().getRoles());
-           System.out.println(loggedInID);
-           if (co.getById().getRoles().equals("[\"ROLE_ADMIN\"]") ){
-           
-         AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                stage.setWidth(1050);
-                stage.setHeight(576);
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
-                System.out.println("jawik behi");
-        }else{
-        AnchorPane root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setWidth(580);
-        stage.setHeight(490);
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
-           }}
-       
-       
-       
+        if (co.getUserBy(tfemail.getText(), password)) {
+            System.out.println(co.getById().getRoles());
+            System.out.println(loggedInID);
+            if (co.getById().isIs_verified() == true)
+            {
+                if(co.getById().isIs_expired() == false){
+                if (co.getById().getRoles().equals("[\"ROLE_ADMIN\"]")) {
+
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setWidth(1050);
+                    stage.setHeight(576);
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setMaximized(true);
+                    stage.show();
+                    System.out.println("jawik behi");
+                } else {
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setWidth(580);
+                    stage.setHeight(490);
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setMaximized(true);
+                    stage.show();
+                }
+                }else{
+                    aleart();
+                }
+            }else{
+                AnchorPane root = FXMLLoader.load(getClass().getResource("VerifieAccount.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setWidth(1050);
+                    stage.setHeight(576);
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setMaximized(true);
+                    stage.show();
+                System.out.println("verifie your account");
+            }
+        } else {
+            System.out.println("nooo");
+        }
         
-       else {
-           System.out.println("nooo");
-       }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-/*amirr
+
+        /*amirr
         User userVerif = null;
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -151,7 +157,6 @@ public class LoginController implements Initializable {
                 }
           
         amirr */
-
 //        if(userVerif == null){
 //            alert.setContentText("User with email:"+tfemail.getText()+" notFound");
 //            alert.showAndWait();}
@@ -257,5 +262,17 @@ public class LoginController implements Initializable {
         stage.setMaximized(true);
         stage.show();
     }
+    @FXML
+    void rememberme(ActionEvent event) {
+
+    }
+    private void aleart() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Youre banned");
+		alert.setHeaderText("Results:");
+		alert.setContentText("contact us for more information");
+
+		alert.showAndWait();
+	}
 
 }

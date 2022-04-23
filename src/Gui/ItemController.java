@@ -43,6 +43,8 @@ public class ItemController implements Initializable {
     private User user;
     @FXML
     private Label tfid;
+    @FXML
+    private Button bann;
 
     /**
      * Initializes the controller class.
@@ -55,6 +57,10 @@ public class ItemController implements Initializable {
    public Button getbtn(){
    return tfis_expired;
    }
+   public Button getbann(){
+   return bann;
+   }
+   
    
    public User getu(){
    return user;
@@ -96,8 +102,15 @@ public class ItemController implements Initializable {
         executeQuery(req);
         
     }
+    @FXML
         public void Delete() {
         String req = "delete from user where id=" + tfid.getText() + "";
+        executeQuery(req);
+        
+    }
+    @FXML
+         public void bann() {
+        String req = "UPDATE user SET is_expired=" +true +" where id=" + tfid.getText() + "";
         executeQuery(req);
         
     }

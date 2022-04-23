@@ -82,6 +82,13 @@ public class Controller implements Initializable {
                      @Override
                     public void handle(Event event) {
                         itemcontroller.Delete();
+                        
+                    }
+                });
+                 itemcontroller.getbann().setOnAction(new EventHandler() {
+                     @Override
+                    public void handle(Event event) {
+                        itemcontroller.bann();
                     }
                 });
                 

@@ -108,7 +108,38 @@ public class Codes {
         }
         return p;
     }
-       
+       public boolean Nullcodemail() {
+          PreparedStatement stmt;
+        
+        try {
+            
+           String sql = "UPDATE  user SET mailcode= 'NULL' WHERE ( id = ? ) ";
+            stmt = cnx.prepareStatement(sql);
+            stmt.setString(1, ""+RestpasswordID);
+           
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+       public boolean Verif() {
+          PreparedStatement stmt;
+        
+        try {
+            
+           String sql = "UPDATE  user SET is_verifIed=" +true +" WHERE ( id = ? ) ";
+            stmt = cnx.prepareStatement(sql);
+            stmt.setString(1,""+RestpasswordID );
+           //""+RestpasswordID
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
 }  
 
         

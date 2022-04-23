@@ -24,12 +24,13 @@ public class User {
    
     
 
-    public User(String username , String telephone,String email, String password, String image) {
+    public User(String username , String telephone,String email, String password, String image,boolean is_verified) {
         this.username = username;
         this.telephone = telephone;
         this.email = email;
         this.password = password;
         this.image = image;
+        this.is_verified=is_verified;
     }
 
     public User(int id, String username, String telephone, String email, String password, String image) {
