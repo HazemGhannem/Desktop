@@ -48,8 +48,8 @@ public class ProfileController implements Initializable {
         String path = "/Image/"+userService.getById().getImage();
         Image image = new Image(getClass().getResourceAsStream(path));
        pic.setImage(image);
-System.out.println(loggedInID);
-System.out.println("yo");
+       // System.out.println(loggedInID);
+        //System.out.println("yo");
 
     }    
 

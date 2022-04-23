@@ -72,6 +72,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         userService = new ServiceUser();
+        
     }
 
     @FXML
@@ -85,6 +86,7 @@ public class LoginController implements Initializable {
 //        for (String number: index) {
 //      System.out.println(number);
 //    }
+
 //        
         if (co.getUserBy(tfemail.getText(), password)) {
             System.out.println(co.getById().getRoles());
@@ -92,7 +94,8 @@ public class LoginController implements Initializable {
             if (co.getById().isIs_verified() == true)
             {
                 if(co.getById().isIs_expired() == false){
-                if (co.getById().getRoles().equals("[\"ROLE_ADMIN\"]")) {
+                    
+                if (co.getById().getRoles().contains("ROLE_ADMIN")) {
 
                     AnchorPane root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

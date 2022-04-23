@@ -36,6 +36,7 @@
             </HBox.margin>
         </Label>
       <Button fx:id="bann" mnemonicParsing="false" onAction="#bann" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-border-color: #2A73FF;" text="Bann" />
+      <Button fx:id="unbann" layoutX="719.0" layoutY="23.0" mnemonicParsing="false" onAction="#unbann" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-border-color: #2A73FF;" text="unbann" />
         <Button fx:id="tfis_expired" mnemonicParsing="false" onAction="#Delete" prefHeight="27.0" prefWidth="195.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@style.css" text="Delete">
             <HBox.margin>
                 <Insets />

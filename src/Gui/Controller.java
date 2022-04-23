@@ -91,6 +91,12 @@ public class Controller implements Initializable {
                         itemcontroller.bann();
                     }
                 });
+                 itemcontroller.getunbann().setOnAction(new EventHandler() {
+                     @Override
+                    public void handle(Event event) {
+                        itemcontroller.unbann();
+                    }
+                });
                 
                 
                 

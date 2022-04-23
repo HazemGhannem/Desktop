@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFixAuth.jar" size="35306801" download="eager" />
+    <jar href="JavaFixAuth.jar" size="35307407" download="eager" />
     <jar href="lib\activation-1.1.1.jar" size="69409" download="eager" />
     <jar href="lib\commons-beanutils-1.9.2.jar" size="233857" download="eager" />
     <jar href="lib\commons-codec-1.4.jar" size="58160" download="eager" />

@@ -45,6 +45,8 @@ public class ItemController implements Initializable {
     private Label tfid;
     @FXML
     private Button bann;
+    @FXML
+    private Button unbann;
 
     /**
      * Initializes the controller class.
@@ -64,6 +66,9 @@ public class ItemController implements Initializable {
    
    public User getu(){
    return user;
+   }
+    public Button getunbann(){
+    return unbann;
    }
    
            
@@ -111,6 +116,12 @@ public class ItemController implements Initializable {
     @FXML
          public void bann() {
         String req = "UPDATE user SET is_expired=" +true +" where id=" + tfid.getText() + "";
+        executeQuery(req);
+        
+    }
+    @FXML
+               public void unbann() {
+        String req = "UPDATE user SET is_expired=" +false +" where id=" + tfid.getText() + "";
         executeQuery(req);
         
     }
