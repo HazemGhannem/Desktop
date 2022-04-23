@@ -52,22 +52,22 @@
             </VBox>
          </top>
       </BorderPane>
-      <Label layoutX="331.0" layoutY="37.0" text="Registration" textFill="ORANGE">
+      <Label layoutX="332.0" layoutY="23.0" text="Registration" textFill="ORANGE">
          <font>
             <Font name="Nirmala UI Bold" size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="tfusername" layoutX="295.0" layoutY="90.0" prefHeight="25.0" prefWidth="214.0" promptText="Username">
+      <TextField fx:id="tfusername" layoutX="292.0" layoutY="80.0" prefHeight="25.0" prefWidth="214.0" promptText="Username">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="tfemail" layoutX="295.0" layoutY="134.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
+      <TextField fx:id="tfemail" layoutX="291.0" layoutY="113.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="tftelephone" layoutX="295.0" layoutY="176.0" prefHeight="25.0" prefWidth="214.0" promptText="Telephone">
+      <TextField fx:id="tftelephone" layoutX="291.0" layoutY="148.0" prefHeight="25.0" prefWidth="214.0" promptText="Telephone">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
@@ -77,24 +77,26 @@
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="tfpassword" layoutX="295.0" layoutY="222.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
+      <PasswordField fx:id="tfpassword" layoutX="291.0" layoutY="184.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btnadd" layoutX="319.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnadd" opacity="0.94" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #EE7F03;" text="Register" textFill="#fff6f6">
+      <Button fx:id="btnadd" layoutX="324.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnadd" opacity="0.94" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #EE7F03;" text="Register" textFill="#fff6f6">
          <font>
             <Font name="Nirmala UI Bold" size="18.0" />
          </font>
       </Button>
-      <CheckBox fx:id="check_af" layoutX="295.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #FFA500; -fx-border-color: #FFA500;" text="Show Password" textFill="WHITE" />
-      <Label fx:id="lab_email" layoutX="277.0" layoutY="266.0" prefHeight="26.0" prefWidth="305.0" textFill="#da1d1d" />
+      <CheckBox fx:id="check_af" layoutX="283.0" layoutY="393.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #FFA500; -fx-border-color: #FFA500;" text="Show Password" textFill="WHITE" />
+      <Label fx:id="lab_email" layoutX="283.0" layoutY="222.0" prefHeight="26.0" prefWidth="305.0" textFill="#da1d1d" />
       <Label fx:id="lab_cin" layoutX="295.0" layoutY="116.0" prefHeight="18.0" prefWidth="112.0" textFill="#da1d1d" />
-      <PasswordField fx:id="tfcpassword" layoutX="295.0" layoutY="267.0" prefHeight="25.0" prefWidth="214.0" promptText="Confirm Password">
+      <PasswordField fx:id="tfcpassword" layoutX="291.0" layoutY="222.0" prefHeight="25.0" prefWidth="214.0" promptText="Confirm Password">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="Pic" layoutX="305.0" layoutY="309.0" mnemonicParsing="false" onAction="#Pic" prefHeight="25.0" prefWidth="103.0" text="Pic" />
+      <Button fx:id="Pic" layoutX="300.0" layoutY="258.0" mnemonicParsing="false" onAction="#Pic" prefHeight="25.0" prefWidth="103.0" text="Pic" />
+      <ImageView fx:id="img" fitHeight="62.0" fitWidth="200.0" layoutX="283.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="captchainp" layoutX="283.0" layoutY="360.0" />
    </children>
 </AnchorPane>

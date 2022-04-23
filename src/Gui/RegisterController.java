@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Properties;
+import java.util.Random;
 import java.util.ResourceBundle;
 import static javafixauth.JavaFixAuth.RestpasswordID;
 import javafx.event.ActionEvent;
@@ -26,11 +27,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -42,6 +47,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -75,6 +82,12 @@ public class RegisterController implements Initializable {
     @FXML
     private Button Pic;
     File file;
+    @FXML
+    private ImageView img;
+    @FXML
+    private TextField captchainp;
+    Random rn = new Random();
+    int randomNumber = rn.nextInt(3) + 1;
 
     /**
      * Initializes the controller class.
@@ -82,40 +95,73 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         userService = new ServiceUser();
-
+        Image im = new Image(this.getClass().getResourceAsStream("/captcha/" + "" + randomNumber + ".png"));
+        img.setFitHeight(150);
+        img.setFitWidth(150);
+        img.setImage(im);
+        System.out.println(randomNumber);
     }
 
     @FXML
     private void btnadd(ActionEvent event) throws IOException {
-        // hash password
-        String password= DigestUtils.md5Hex(tfpassword.getText());
-        
-        FileInputStream fl = new FileInputStream(file);
+
+        String s = "/captcha/" + "" + randomNumber + ".png";
+        System.out.println(randomNumber);
+        Tesseract tesseract = new Tesseract();
+        try {
+            String path = "C:\\Users\\Hazem\\Documents\\NetBeansProjects\\JavaFixAuth\\src\\tesseract";
+            tesseract.setDatapath(path);
+
+            String te = tesseract.doOCR(new File("C:\\Users\\Hazem\\Documents\\NetBeansProjects\\JavaFixAuth\\src\\" + s));
+            //System.out.print(te);
+
+            System.out.println("DONE");
+
+            String input = captchainp.getText();
+            String in =te.replaceAll("\\s+","");
+            //System.out.println("iput: " + input);
+
+            // hash password
+            String password = DigestUtils.md5Hex(tfpassword.getText());
+
+            FileInputStream fl = new FileInputStream(file);
 
             byte[] data = new byte[(int) file.length()];
             String fileName = file.getName();
             String image = fileName;
             fl.read(data);
             fl.close();
-        User user = new User(tfusername.getText(), tftelephone.getText(), tfemail.getText(), password,image,false);
-       // user.setRoles("[\"ROLE_ADMIN\"]");
-       
-        if (tfusername.getText().length() != 0 || tfemail.getText().length() != 0) {
-
-            userService.ajouter(user);
-            System.out.println(user);
-            sendEmail();
-            AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setWidth(600);
-            stage.setHeight(400);
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
-
-        } else {
-            System.out.println("wrong");
+            User user = new User(tfusername.getText(), tftelephone.getText(), tfemail.getText(), password, image, false);
+            // user.setRoles("[\"ROLE_ADMIN\"]");
+                System.out.println(te);
+                System.out.println(input.equals(in));
+                System.out.println(te.length());
+                System.out.println(input.length());
+                System.out.println(in.length());
+                
+                //int i = input.indexOf(te);
+                //System.out.println(i);
+                if (input.equals(in)) {
+                    userService.ajouter(user);
+                    System.out.println(user);
+                    sendEmail();
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setWidth(600);
+                    stage.setHeight(400);
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setMaximized(true);
+                    stage.show();
+                } else {
+                    Aleart();
+                    System.out.println("wrong");
+                }
+                    
+                    
+            
+        } catch (TesseractException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -135,7 +181,7 @@ public class RegisterController implements Initializable {
 
             file = chooser.getSelectedFile();
             String fileName = file.getName();
-               System.out.println(fileName);
+            System.out.println(fileName);
             if (chooser.getSelectedFile() != null) {
 
                 try {
@@ -157,42 +203,41 @@ public class RegisterController implements Initializable {
             }
 
         }
-        
-         System.out.println(file.getPath());
+
+        System.out.println(file.getPath());
         return file;
-        
+
     }
-    public  void sendEmail() {
-        String to =tfemail.getText() ;
+
+    public void sendEmail() {
+        String to = tfemail.getText();
         String from = "hamatalbi9921@gmail.com";
         String host = "smtp.gmail.com";
         final String username = "hamatalbi9921@gmail.com";
         final String password = "123456789hama";
-        
-        //setup mail server
 
+        //setup mail server
         Properties props = System.getProperties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", "587");
 
-        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator(){
+        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             @Override
-            protected PasswordAuthentication getPasswordAuthentication() 
-            {
+            protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);
             }
         });
 
-        try{
+        try {
             ServiceUser serviceuser = new ServiceUser();
-            Codes code= new Codes();
+            Codes code = new Codes();
             code.getUserBy(to);
-            
-           String verification=code.envoyerCode(RestpasswordID);
-           code.codemail(verification, to);
-          // code.update(verification, RestpasswordID);
+
+            String verification = code.envoyerCode(RestpasswordID);
+            code.codemail(verification, to);
+            // code.update(verification, RestpasswordID);
             System.out.println(RestpasswordID);
             System.out.println(verification);
             //create mail
@@ -200,19 +245,28 @@ public class RegisterController implements Initializable {
             m.setFrom(new InternetAddress(from));
             m.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
             m.setSubject("Verifier your account");
-            m.setText("To verifier youre account  entre this code:  "+verification);
-
-           
+            m.setText("To verifier youre account  entre this code:  " + verification);
 
             Transport.send(m);
-            
+
             System.out.println("Message sent!");
 
-        }   catch (MessagingException e){
+        } catch (MessagingException e) {
             e.printStackTrace();
 //        } catch (SQLException ex) {
 //            Logger.getLogger(RestPasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void Aleart() {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("CAPTCHA");
+        alert.setHeaderText("Results:");
+        alert.setContentText("WRONG CAPTCHA");
+
+        alert.showAndWait();
+        tfcpassword.setText("");
+        tfpassword.setText("");
     }
 }
