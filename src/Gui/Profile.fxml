@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
@@ -9,6 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ProfileController">
    <children>
@@ -32,22 +34,26 @@
             </Pane>
          </children>
       </VBox>
-      <Label layoutX="277.0" layoutY="29.0" text="Profile Setting" />
-      <Label layoutX="277.0" layoutY="102.0" text="Profile details" />
-      <Label layoutX="277.0" layoutY="137.0" text="Username" />
-      <Label layoutX="277.0" layoutY="376.0" text="Contact info" />
-      <Label layoutX="277.0" layoutY="413.0" text="phone" />
-      <Label layoutX="277.0" layoutY="170.0" text="Email" />
-      <Label layoutX="277.0" layoutY="445.0" text="Email" />
-      <TextField layoutX="438.0" layoutY="99.0" />
-      <TextField layoutX="438.0" layoutY="134.0" />
-      <TextField layoutX="438.0" layoutY="167.0" />
-      <TextField layoutX="417.0" layoutY="413.0" />
-      <TextField layoutX="417.0" layoutY="445.0" />
-      <Separator layoutX="290.0" layoutY="342.0" prefHeight="17.0" prefWidth="444.0" />
-      <Label layoutX="277.0" layoutY="211.0" text="Old Password" />
-      <TextField layoutX="438.0" layoutY="208.0" />
-      <Label layoutX="276.0" layoutY="253.0" text="New Password" />
-      <TextField layoutX="438.0" layoutY="249.0" />
+      <Label layoutX="277.0" layoutY="29.0" text="Profile Setting">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="278.0" layoutY="109.0" text="Username" />
+      <Label layoutX="266.0" layoutY="330.0" text="Contact info">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="270.0" layoutY="375.0" text="phone" />
+      <Label layoutX="273.0" layoutY="418.0" text="Email" />
+      <TextField fx:id="email" layoutX="410.0" layoutY="414.0" promptText="email" />
+      <TextField fx:id="phone" layoutX="410.0" layoutY="375.0" promptText="phone" />
+      <Separator layoutX="270.0" layoutY="302.0" prefHeight="17.0" prefWidth="444.0" />
+      <Label layoutX="268.0" layoutY="162.0" text="New Password" />
+      <Label layoutX="263.0" layoutY="213.0" text="Confirmation Password" />
+      <PasswordField fx:id="password" layoutX="439.0" layoutY="158.0" promptText="password" />
+      <PasswordField fx:id="cpassword" layoutX="439.0" layoutY="209.0" promptText="password" />
+      <Button fx:id="save" layoutX="650.0" layoutY="451.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="78.0" text="Save" />
+      <TextField fx:id="userna" layoutX="429.0" layoutY="105.0" />
+      <Button fx:id="refresh" layoutX="559.0" layoutY="451.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="78.0" text="Refresh" />
    </children>
 </AnchorPane>

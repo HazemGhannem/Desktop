@@ -21,6 +21,7 @@ public class JavaFixAuth extends Application {
     public static int RestpasswordID;
     @Override
     public void start(Stage primaryStage) {
+        
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Gui/Login.fxml"));
             Scene scene = new Scene(root);

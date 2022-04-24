@@ -21,6 +21,14 @@ public class User {
         this.id = id;
     }
 
+    public User(int id, String username, String telephone, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.telephone = telephone;
+        this.email = email;
+        this.password = password;
+    }
+
    
     
 
