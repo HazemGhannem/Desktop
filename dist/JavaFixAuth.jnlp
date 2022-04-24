@@ -8,7 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFixAuth.jar" size="35307407" download="eager" />
+    <jar href="JavaFixAuth.jar" size="16759431" download="eager" />
+    <jar href="lib\OSmsJava.jar" size="595905" download="eager" />
     <jar href="lib\activation-1.1.1.jar" size="69409" download="eager" />
     <jar href="lib\commons-beanutils-1.9.2.jar" size="233857" download="eager" />
     <jar href="lib\commons-codec-1.4.jar" size="58160" download="eager" />
@@ -32,10 +33,12 @@
     <jar href="lib\logback-classic-1.2.3.jar" size="290339" download="eager" />
     <jar href="lib\logback-core-1.2.3.jar" size="471901" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\osms-java-1.0.0.jar" size="36745" download="eager" />
     <jar href="lib\pdfbox-2.0.9.jar" size="2513383" download="eager" />
     <jar href="lib\pdfbox-tools-2.0.9.jar" size="72361" download="eager" />
     <jar href="lib\slf4j-api-1.7.25.jar" size="41203" download="eager" />
     <jar href="lib\tess4j-3.4.8.jar" size="5212199" download="eager" />
+    <jar href="lib\twilio-8.9.0-jar-with-dependencies.jar" size="8358946" download="eager" />
     <jar href="lib\xmlgraphics-commons-1.5.jar" size="601866" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="JavaFixAuth" >

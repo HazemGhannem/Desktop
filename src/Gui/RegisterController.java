@@ -8,6 +8,9 @@ package Gui;
 import Models.User;
 import Services.Codes;
 import Services.ServiceUser;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +23,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
-import static javafixauth.JavaFixAuth.RestpasswordID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +39,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -88,6 +89,10 @@ public class RegisterController implements Initializable {
     private TextField captchainp;
     Random rn = new Random();
     int randomNumber = rn.nextInt(3) + 1;
+    public static int loggedInID;
+    public static int RestpasswordID;
+    public static final String ACCOUNT_SID = "AC111774e6204e5f439c3e61f2f244ef4c";
+    public static final String AUTH_TOKEN = "ed0fef446b3564301146af09ee1f6b88";
 
     /**
      * Initializes the controller class.
@@ -106,8 +111,10 @@ public class RegisterController implements Initializable {
     private void btnadd(ActionEvent event) throws IOException {
 
         String s = "/captcha/" + "" + randomNumber + ".png";
+
         System.out.println(randomNumber);
         Tesseract tesseract = new Tesseract();
+
         try {
             String path = "C:\\Users\\Hazem\\Documents\\NetBeansProjects\\JavaFixAuth\\src\\tesseract";
             tesseract.setDatapath(path);
@@ -118,7 +125,7 @@ public class RegisterController implements Initializable {
             System.out.println("DONE");
 
             String input = captchainp.getText();
-            String in =te.replaceAll("\\s+","");
+            String in = te.replaceAll("\\s+", "");
             //System.out.println("iput: " + input);
 
             // hash password
@@ -133,33 +140,32 @@ public class RegisterController implements Initializable {
             fl.close();
             User user = new User(tfusername.getText(), tftelephone.getText(), tfemail.getText(), password, image, false);
             // user.setRoles("[\"ROLE_ADMIN\"]");
-                System.out.println(te);
-                System.out.println(input.equals(in));
-                System.out.println(te.length());
-                System.out.println(input.length());
-                System.out.println(in.length());
-                
-                //int i = input.indexOf(te);
-                //System.out.println(i);
-                if (input.equals(in)) {
-                    userService.ajouter(user);
-                    System.out.println(user);
-                    sendEmail();
-                    AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setWidth(600);
-                    stage.setHeight(400);
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setMaximized(true);
-                    stage.show();
-                } else {
-                    Aleart();
-                    System.out.println("wrong");
-                }
-                    
-                    
-            
+            System.out.println(te);
+            System.out.println(input.equals(in));
+            System.out.println(te.length());
+            System.out.println(input.length());
+            System.out.println(in.length());
+
+            //int i = input.indexOf(te);
+            //System.out.println(i);
+            if (input.equals(in)) {
+                userService.ajouter(user);
+                System.out.println(user);
+                sendEmail();
+
+                AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setWidth(600);
+                stage.setHeight(400);
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                stage.show();
+            } else {
+                Aleart();
+                System.out.println("wrong");
+            }
+
         } catch (TesseractException e) {
             System.out.println(e.getMessage());
         }
@@ -234,6 +240,8 @@ public class RegisterController implements Initializable {
             ServiceUser serviceuser = new ServiceUser();
             Codes code = new Codes();
             code.getUserBy(to);
+            String tel = code.getByI().getTelephone();
+            System.out.println(tel);
 
             String verification = code.envoyerCode(RestpasswordID);
             code.codemail(verification, to);
@@ -248,6 +256,13 @@ public class RegisterController implements Initializable {
             m.setText("To verifier youre account  entre this code:  " + verification);
 
             Transport.send(m);
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+            Message message = Message.creator(new PhoneNumber("+21627300520"),
+                    new PhoneNumber("+19108074575"),
+                    "To Active youre account insert this code: " + verification).create();
+
+            System.out.println(message.getSid());
 
             System.out.println("Message sent!");
 
