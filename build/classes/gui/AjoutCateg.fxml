@@ -22,7 +22,7 @@
       </ImageView>
       <ImageView fitHeight="258.0" fitWidth="341.0" layoutX="70.0" layoutY="150.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/580b57fcd9996e24bc43c1a8.png" />
+            <Image url="@../../build/classes/image/aa.png" />
          </image>
       </ImageView>
       <Label layoutX="292.0" layoutY="57.0" text="Ajouter une Categorie" textFill="WHITE">
@@ -35,7 +35,7 @@
       <TextField fx:id="image" layoutX="178.0" layoutY="376.0" prefHeight="64.0" prefWidth="259.0" promptText="Image" />
       <Button layoutX="239.0" layoutY="478.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="45.0" prefWidth="113.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter" />
       <Button fx:id="non" layoutX="358.0" layoutY="478.0" mnemonicParsing="false" onAction="#Afficher" prefHeight="45.0" prefWidth="113.0" styleClass="shadow" stylesheets="@../values/style.css" text="Afficher" />
-      <Button layoutX="655.0" layoutY="478.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="173.0" styleClass="shadow" stylesheets="@../values/style.css" text="ajouter une image" />
+      <Button layoutX="655.0" layoutY="487.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="173.0" styleClass="shadow" stylesheets="@../values/style.css" text="ajouter une image" />
       <ImageView fx:id="img" fitHeight="231.0" fitWidth="222.0" layoutX="630.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/non.png" />

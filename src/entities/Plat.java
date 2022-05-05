@@ -13,20 +13,24 @@ public class Plat {
     private int id;
     private String nom,img,desc;
     private Double prix;
+    private int categorie_id;
     
-    public Plat(int id,String nom , String desc, String img, Double prix) {
+    public Plat(int id,String nom , String desc,int categorie_id, Double prix, String img) {
         this.id = id;
         this.nom = nom;
         this.desc = desc;
         this.img = img;
         this.prix = prix;
+        this.categorie_id = categorie_id;
     }
-    public Plat(String nom , String desc, Double prix, String img) {
+    public Plat(String nom , String desc,int categorie_id, Double prix, String img) {
         
         this.nom = nom;
         this.desc = desc;
         this.prix = prix;
         this.img = img;
+        this.categorie_id = categorie_id;
+        
     }
     
     public Plat() {
@@ -75,11 +79,20 @@ public class Plat {
 
     public void setDesc(String desc) {
         this.desc = desc;
+        
+    }
+    
+    public int getCategorie_id() {
+        return categorie_id;
+    }
+
+    public void setCategorie_id(int categorie_id) {
+        this.categorie_id = categorie_id;
     }
 
     @Override
     public String toString() {
-        return  "id=" + id + ", nom=" + nom + ", img=" + img + ", desc=" + desc + ", prix=" + prix +'}';
+        return  "id=" + id + ", nom=" + nom + ", img=" + img + ", desc=" + desc + ", categorie=" + categorie_id + ", prix=" + prix +'}';
     }
 
   

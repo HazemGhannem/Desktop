@@ -44,7 +44,7 @@ public class AjoutCategController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.img = new ImageView("file:/assets/image/Logo.png");
+        //this.img = new ImageView("file:/assets/image/Logo.png");
         
     }    
 

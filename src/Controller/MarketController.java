@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -63,6 +64,8 @@ public class MarketController implements Initializable {
     private List<Plat> listArt = new ArrayList<>();
     private MyListener myListener;
     Plat plat = new Plat();
+    @FXML
+    private ComboBox<String> idcombo;
 
     /**
      * Initializes the controller class.
@@ -70,20 +73,33 @@ public class MarketController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
              showScreen();
+             idcombo.getItems().add("Par Nom");
+        idcombo.getItems().add("Par Categorie");
+        idcombo.getItems().add("Par Prix");
+             
     }   
     private void setChosenPlat(Plat plat) {
+//        System.out.println("test");
+//        String path = "../image/" + plat.getImg();
+//                System.out.println(path);
+//
+//        Image image = new Image(getClass().getResourceAsStream(path));
+//                System.out.println("test");
+
+        articleImg.setImage(new Image("/image/" + plat.getImg()));
+                System.out.println("test");
+
         nom1.setText(plat.getNom());
         desc1.setText(plat.getDesc());
         prix1.setText(NewFXMain.CURRENCY + plat.getPrix());
         chosenplat.setStyle("-fx-background-radius: 30;");
     }
 
-    @FXML
-    private void searchButton(ActionEvent event) {
-    }
+
     public void showScreen() {
         PlatService platService = new PlatService();
         listArt.addAll(platService.recuperer());
+        
 
         if (listArt.size() > 0) {
             setChosenPlat(listArt.get(0));
@@ -96,8 +112,8 @@ public class MarketController implements Initializable {
                     plat.setNom(nomp.getNom());
                     plat.setDesc(nomp.getDesc());
                     plat.setPrix(nomp.getPrix());
-                    plat.setImg(nomp.getImg());
-                    System.out.println("Coach get"+plat);
+//                    plat.setImg(nomp.getImg());
+                    System.out.println("az get"+plat);
                     
 
                 }
@@ -113,8 +129,8 @@ public class MarketController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/gui/Plat.fxml"));
                 AnchorPane abc = fxmlLoader.load();
-                ItemController platController = fxmlLoader.getController();
-                platController.setData(listArt.get(i), myListener);
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(listArt.get(i), myListener);
 
                 if (column == 3) {
                     column = 0;
@@ -139,7 +155,146 @@ public class MarketController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    
+    @FXML
+    private void searchButton(ActionEvent event) {
+        listArt.clear();
+        String marque= search.getText();
+        PlatService platService = new PlatService();
+        System.out.println("recherche" + platService.rechercheCoach(marque));
+        List<Plat> list=new ArrayList();
+        for (Plat c:platService.recuperer()){
+            if (c.getNom().toUpperCase().contains(marque.toUpperCase()) || c.getDesc().toUpperCase().contains(marque.toUpperCase())  ){
+                list.add(c);
+            }
+        }
+        listArt.addAll(list);
 
+
+        if (listArt.size() > 0) {
+            setChosenPlat(listArt.get(0));
+            myListener = new MyListener() {
+                public void onClickListener(Plat plat) {
+                    setChosenPlat(plat);
+                    plat.setId(plat.getId());
+                    plat.setNom(plat.getNom());
+                    plat.setDesc(plat.getDesc());
+                    plat.setPrix(plat.getPrix());
+//                    plat.setImg(plat.getImg());
+                    
+
+                }
+            };
+        }
+        int column = 0;
+        int row = 1;
+        grid.getChildren().clear();
+        try {
+            for (int i = 0; i < listArt.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/gui/Plat.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(listArt.get(i), myListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void trierarticle(ActionEvent event) {
+        listArt.clear();
+        PlatService platService = new PlatService();
+
+        if (idcombo.getValue().equals("Par Nom")){
+            listArt.addAll(platService.TreePlat());
+        }
+        else if (idcombo.getValue().equals("Par Categorie")){
+            listArt.addAll(platService.Treepd());
+            
+        }
+        else if (idcombo.getValue().equals("Par Prix")){
+            listArt.addAll(platService.TreePrix());
+            
+        }
+        
+        if (listArt.size() > 0) {
+            setChosenPlat(listArt.get(0));
+            myListener = new MyListener() {
+                public void onClickListener(Plat plat) {
+                     setChosenPlat(plat);
+                    plat.setId(plat.getId());
+                    plat.setNom(plat.getNom());
+                    plat.setDesc(plat.getDesc());
+                    plat.setPrix(plat.getPrix());
+
+                }
+            };
+        }
+        int column = 0;
+        int row = 1;
+        grid.getChildren().clear();
+        try {
+            for (int i = 0; i < listArt.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/gui/Plat.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(listArt.get(i), myListener);
+
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void refreshButton(ActionEvent event) {
+         listArt.clear();
+        showScreen();
+    }
+
+    
 }
     
     

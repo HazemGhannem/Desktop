@@ -115,9 +115,30 @@ public class CategorieService implements Iservice<Categorie>{
         
         return list;
     }
+    
     public  Categorie GetById(int id) {
         return recuperer().stream().filter(e -> e.getId() == id).findFirst().get();
 
     }
+    
+    public int getIdByCategoryName(String nom) {
+
+	int idc = 0;
+
+	try {
+	    String request = "select id from categorie where nom like ?";
+	    PreparedStatement st = connection.prepareStatement(request);
+	    st.setString(1, nom);
+	    ResultSet rs = st.executeQuery();
+	    while (rs.next()) {
+		idc = rs.getInt(1);
+	    }
+	} catch (SQLException ex) {
+	    System.err.println(ex.getMessage());
+	}
+
+	return idc;
+    }
+    
     
 }

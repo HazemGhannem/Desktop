@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import test.MyListener;
 
 /**
@@ -30,6 +31,8 @@ public class ItemController implements Initializable {
     private ImageView img;
     private Plat plat;
     private MyListener myListener;
+    @FXML
+    private AnchorPane parent;
 
     /**
      * Initializes the controller class.
@@ -47,9 +50,19 @@ public class ItemController implements Initializable {
         this.myListener = myListener;
         nameLabel.setText(plat.getNom());
         priceLable.setText(""+plat.getPrix());
-        //Image image = new Image(getClass().getResourceAsStream(plat.getImg()));
-        //img.setImage(image);
+        img.setImage(new Image("/image/" + plat.getImg()));
+//        String path = "../image/" + plat.getImg();
+//        Image image = new Image(getClass().getResourceAsStream(plat.getImg()));
+//        img.setImage(image);
+//        
+        this.plat = plat;
+
         
     }   
+
+    @FXML
+    private void details(MouseEvent event) {
+        myListener.onClickListener(plat);
+    }
     
 }
