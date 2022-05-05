@@ -18,6 +18,11 @@ public interface Iservice <T>{
     public List<T> getAll();
     public void modifier(T t);
     public void supprimer(T t);
+  
+
+    public void supprimer(int id);
+
+    public List<T> recuperer();
 }
 
   

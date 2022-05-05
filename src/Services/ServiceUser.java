@@ -274,6 +274,16 @@ public class ServiceUser implements Iservice<User> {
         }
         return false;
     }
+
+    @Override
+    public void supprimer(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> recuperer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
 
     

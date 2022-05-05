@@ -19,11 +19,12 @@ import javafx.stage.Stage;
 public class JavaFixAuth extends Application {
     public static int loggedInID;
     public static int RestpasswordID;
+     public static final String CURRENCY = "$";
     @Override
     public void start(Stage primaryStage) {
         
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Gui/Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Gui/market.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

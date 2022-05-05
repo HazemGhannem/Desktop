@@ -5,8 +5,13 @@
  */
 package Gui;
 
+import static Gui.RegisterController.ACCOUNT_SID;
+import static Gui.RegisterController.AUTH_TOKEN;
 import Services.Codes;
 import Services.ServiceUser;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import java.io.IOException;
 import javax.mail.PasswordAuthentication;
 import java.net.URL;
@@ -92,6 +97,7 @@ public class RestPasswordController implements Initializable {
             ServiceUser serviceuser = new ServiceUser();
             Codes code= new Codes();
             code.getUserBy(to);
+            String userna = code.getByI().getUsername();
             
            String verification=code.envoyerCode(RestpasswordID);
            code.codemail(verification, to);
@@ -103,11 +109,18 @@ public class RestPasswordController implements Initializable {
             m.setFrom(new InternetAddress(from));
             m.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
             m.setSubject("Rest Password");
-            m.setText("To rest youre password check entre this code:  "+verification);
+            m.setText("\"Dear "+userna+"To verifier youre account  entre this code:  " + verification);
 
            
 
             Transport.send(m);
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+            Message message = Message.creator(new PhoneNumber("+21627300520"),
+                    new PhoneNumber("+19108074575"),
+                    "Dear "+userna+"To verifier youre account  entre this code:  " + verification).create();
+
+            System.out.println(message.getSid());
             
             System.out.println("Message sent!");
 

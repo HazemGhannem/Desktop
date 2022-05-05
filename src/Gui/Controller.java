@@ -76,7 +76,7 @@ public class Controller implements Initializable {
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("Item.fxml"));
                 HBox hbox= fxmlloader.load();
-                ItemController itemcontroller = fxmlloader.getController();
+                ItemmController itemcontroller = fxmlloader.getController();
                 itemcontroller.Setdata(user.get(i));
                 itemcontroller.getbtn().setOnAction(new EventHandler() {
                      @Override

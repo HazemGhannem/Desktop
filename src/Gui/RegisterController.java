@@ -241,6 +241,7 @@ public class RegisterController implements Initializable {
             Codes code = new Codes();
             code.getUserBy(to);
             String tel = code.getByI().getTelephone();
+            String userna = code.getByI().getUsername();
             System.out.println(tel);
 
             String verification = code.envoyerCode(RestpasswordID);
@@ -253,14 +254,14 @@ public class RegisterController implements Initializable {
             m.setFrom(new InternetAddress(from));
             m.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
             m.setSubject("Verifier your account");
-            m.setText("To verifier youre account  entre this code:  " + verification);
+            m.setText("Dear "+userna+"To verifier youre account  entre this code:  " + verification);
 
             Transport.send(m);
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
             Message message = Message.creator(new PhoneNumber("+21627300520"),
                     new PhoneNumber("+19108074575"),
-                    "To Active youre account insert this code: " + verification).create();
+                    "Dear "+userna+"To verifier youre account  entre this code:  " + verification).create();
 
             System.out.println(message.getSid());
 
