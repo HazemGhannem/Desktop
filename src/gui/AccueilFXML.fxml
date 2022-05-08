@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AccueilController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="-1.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="314.0" fitWidth="744.0" layoutX="166.0" layoutY="366.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/fried_egg_PNG87.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="376.0" fitWidth="513.0" layoutX="609.0" layoutY="147.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/580b57fcd9996e24bc43c1a8.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="241.0" fitWidth="287.0" layoutX="641.0" layoutY="454.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sushi_PNG9267.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="342.0" fitWidth="479.0" layoutX="46.0" layoutY="171.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/5b8ed938a639e004e1cab569.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="a" layoutX="383.0" layoutY="333.0" mnemonicParsing="false" onAction="#coupon" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion des coupons" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="c" layoutX="383.0" layoutY="503.0" mnemonicParsing="false" onAction="#promotion" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion des promotions" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="b" layoutX="383.0" layoutY="416.0" mnemonicParsing="false" onAction="#pack" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion de packs" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Label layoutX="80.0" layoutY="51.0" text="Bienvenue Sur FLYFOOD" textFill="#ffa100">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="76.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" layoutX="441.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

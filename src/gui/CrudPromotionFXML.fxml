@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CrudPromotionController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="294.0" fitWidth="302.0" layoutX="105.0" layoutY="383.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sushi_PNG9267.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="BTNUpdate" layoutX="205.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonUpdate" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Modifier" />
+      <Button fx:id="BTNDelete" layoutX="660.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonDelete" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Supprimer" />
+      <Button fx:id="BTNAdd" layoutX="40.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonAdd" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter" />
+      <Label layoutX="400.0" layoutY="55.0" prefHeight="86.0" prefWidth="653.0" text="Gestion des promotions" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="55.0" />
+         </font>
+      </Label>
+      <Button fx:id="back" layoutX="58.0" layoutY="65.0" mnemonicParsing="false" onAction="#accueil" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Accueil" />
+      <Label layoutX="94.0" layoutY="157.0" prefHeight="21.0" prefWidth="84.0" text="Nom">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFNom" layoutX="91.0" layoutY="178.0" promptText="Nom" />
+      <Text layoutX="98.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datedebut">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFPourcentage" layoutX="93.0" layoutY="236.0" promptText="Pourcentage" />
+      <Text layoutX="94.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFDescription" layoutX="91.0" layoutY="300.0" promptText="Description" />
+      <DatePicker fx:id="DPDatedebut" layoutX="96.0" layoutY="428.0" promptText="Datedebut" />
+      <DatePicker fx:id="DPDatefin" layoutX="96.0" layoutY="496.0" promptText="Datefin" />
+      <Text layoutX="93.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pourcentage">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="98.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datefin">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="94.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prixoriginal">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFPrixoriginal" layoutX="91.0" layoutY="361.0" promptText="Prixoriginal" />
+      <Text layoutX="94.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFSearch" layoutX="343.0" layoutY="178.0" prefHeight="31.0" prefWidth="603.0" promptText="Search" />
+      <Button fx:id="BTNReset" layoutX="886.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonReset" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Reset" />
+      <TableView fx:id="TVPromotion" layoutX="343.0" layoutY="219.0" onMouseClicked="#GetSelectPromotion" prefHeight="386.0" prefWidth="708.0">
+         <columns>
+            <TableColumn fx:id="COLNom" prefWidth="70.0" text="Nom" />
+            <TableColumn fx:id="COLPourcentage" prefWidth="101.0" text="Pourcentage" />
+            <TableColumn fx:id="COLDescription" prefWidth="119.0" text="Description" />
+            <TableColumn fx:id="COLPrixoriginal" prefWidth="91.0" text="Prixoriginal" />
+            <TableColumn fx:id="COLPrixpromotion" prefWidth="120.0" text="Prixpromotion" />
+            <TableColumn fx:id="COLDatedebut" prefWidth="98.0" text="Datedebut" />
+            <TableColumn fx:id="COLDatefin" minWidth="1.0" prefWidth="108.0" text="Datefin" />
+         </columns>
+      </TableView>
+      <TextField fx:id="TFId" editable="false" layoutX="660.0" layoutY="14.0" opacity="0.0" />
+      <Button fx:id="statistique" layoutX="205.0" layoutY="66.0" mnemonicParsing="false" onAction="#statistique" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Statistique" />
+      <Button fx:id="TFImage" layoutX="100.0" layoutY="573.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="45.0" prefWidth="173.0" styleClass="shadow" stylesheets="@../../../Nouveau%20dossier/3A47/src/values/style.css" text="ajouter une image" />
+   </children>
+</AnchorPane>
