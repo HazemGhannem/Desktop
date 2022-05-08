@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="btnAdd" minHeight="600.0" minWidth="1000.0" prefHeight="538.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventFormController">
+   <children>
+      <Label layoutX="65.0" layoutY="62.0" text="Name" />
+      <Label layoutX="62.0" layoutY="184.0" text="Description" />
+      <Label layoutX="63.0" layoutY="349.0" text="Date" />
+      <DatePicker fx:id="date" layoutX="183.0" layoutY="345.0" prefHeight="24.0" prefWidth="347.0" />
+      <TextField fx:id="name" layoutX="183.0" layoutY="58.0" prefHeight="24.0" prefWidth="347.0" />
+      <Label layoutX="63.0" layoutY="306.0" prefHeight="16.0" prefWidth="82.0" text="Restaurant" />
+      <Label layoutX="64.0" layoutY="392.0" text="Image" />
+      <Label layoutX="590.0" layoutY="100.0" text="Price" />
+      <Label layoutX="590.0" layoutY="62.0" text="Max Reservations" />
+      <TextArea fx:id="description" layoutX="183.0" layoutY="92.0" prefHeight="200.0" prefWidth="347.0" />
+      <ComboBox fx:id="restaurant" layoutX="183.0" layoutY="302.0" prefHeight="24.0" prefWidth="347.0" />
+      <ImageView fx:id="image" disable="true" fitHeight="150.0" fitWidth="347.0" layoutX="183.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: red;" />
+      <TextField fx:id="max_reservations" layoutX="782.0" layoutY="58.0" />
+      <TextField fx:id="price" layoutX="782.0" layoutY="96.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventDetailsController">
+   <children>
+      <Label fx:id="label_name" layoutX="21.0" layoutY="161.0" text="Label">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="371.0" text="Reservations List">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_description" layoutX="8.0" layoutY="193.0" prefHeight="138.0" prefWidth="980.0" text="Label" />
+      <ImageView fx:id="img_event" fitHeight="150.0" fitWidth="1005.0" layoutX="-2.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../Pictures/Screenshot%20from%202022-04-17%2016-13-40.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableview_reservations" layoutX="61.0" layoutY="461.0" prefHeight="200.0" prefWidth="865.0">
+         <columns>
+            <TableColumn fx:id="tableview_user" minWidth="0.0" prefWidth="209.0" text="User" />
+            <TableColumn fx:id="tableview_code" prefWidth="459.0" text="Code" />
+            <TableColumn fx:id="tableview_isPaid" minWidth="0.0" prefWidth="196.0" text="Is Paid" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Separator layoutX="-1.0" layoutY="333.0" prefHeight="16.0" prefWidth="998.0" />
+      <TextField fx:id="textField_search" layoutX="284.0" layoutY="410.0" prefHeight="37.0" prefWidth="360.0" promptText="Search By Code " />
+      <Label fx:id="label_total" layoutX="246.0" layoutY="367.0" prefHeight="37.0" prefWidth="120.0" />
+      <Label fx:id="label_total" layoutX="246.0" layoutY="371.0" prefHeight="29.0" prefWidth="97.0" />
+   </children>
+</AnchorPane>

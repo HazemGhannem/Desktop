@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="989.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EventAddController">
+   <children>
+      <Label layoutX="17.0" layoutY="72.0" text="Name :" />
+      <Label layoutX="17.0" layoutY="207.0" text="Description :" />
+      <Label layoutX="506.0" layoutY="256.0" text="Date :" />
+      <DatePicker fx:id="date" layoutX="672.0" layoutY="252.0" prefHeight="24.0" prefWidth="278.0" />
+      <TextField fx:id="name" layoutX="115.0" layoutY="68.0" prefHeight="24.0" prefWidth="347.0" />
+      <Label layoutX="505.0" layoutY="191.0" prefHeight="16.0" prefWidth="82.0" text="Restaurant :" />
+      <Label layoutX="505.0" layoutY="132.0" text="Price :" />
+      <Label layoutX="505.0" layoutY="72.0" text="Max Reservations :" />
+      <TextArea fx:id="description" layoutX="115.0" layoutY="126.0" prefHeight="200.0" prefWidth="347.0" />
+      <ComboBox fx:id="restaurant" layoutX="672.0" layoutY="187.0" prefHeight="24.0" prefWidth="278.0" />
+      <TextField fx:id="max_reservations" layoutX="672.0" layoutY="68.0" prefHeight="24.0" prefWidth="270.0" />
+      <TextField fx:id="price" layoutX="672.0" layoutY="128.0" prefHeight="24.0" prefWidth="270.0" />
+      <Button fx:id="btn_add" layoutX="327.0" layoutY="413.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="94.0" prefWidth="329.0" text="Add Event" />
+      <Separator layoutX="481.0" layoutY="48.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="5.0" />
+      <Label fx:id="label_name" layoutX="115.0" layoutY="100.0" textFill="#f83838" />
+      <Label fx:id="label_date" layoutX="672.0" layoutY="278.0" textFill="#f83838" />
+      <Label fx:id="label_restaurant" layoutX="672.0" layoutY="215.0" textFill="#f83838" />
+      <Label fx:id="label_price" layoutX="672.0" layoutY="158.0" textFill="#f83838" />
+      <Label fx:id="label_maxReservations" layoutX="672.0" layoutY="96.0" textFill="#f83838" />
+      <Label fx:id="label_description" layoutX="115.0" layoutY="335.0" textFill="#f83838" />
+      <Label layoutX="506.0" layoutY="302.0" text="Time:" />
+      <TextField layoutX="672.0" layoutY="306.0" prefHeight="24.0" prefWidth="56.0" />
+      <TextField layoutX="763.0" layoutY="306.0" prefHeight="24.0" prefWidth="56.0" />
+      <Label layoutX="731.0" layoutY="310.0" text="h : " />
+      <Label layoutX="828.0" layoutY="310.0" text="min" />
+      <Label fx:id="label_time" layoutX="672.0" layoutY="335.0" prefHeight="16.0" prefWidth="75.0" textFill="#f83838" />
+   </children>
+</AnchorPane>
