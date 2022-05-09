@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="850.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="Gui.EventsByReservationsController">
+   <children>
+      <BarChart fx:id="barChart" layoutX="40.0" layoutY="23.0" prefHeight="485.0" prefWidth="770.0">
+        <xAxis>
+          <CategoryAxis fx:id="events" label="Events (Occured last month)" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="nb_reservations" label="Number of reservations" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

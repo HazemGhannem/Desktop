@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Restoview1Controller">
+ 
+<stylesheets>
+        <URL value="@restoview.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="879.0" fitWidth="551.0" layoutX="-133.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-23.5" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../assest/chefe2.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="74.0" layoutY="401.0" text="NOM RESTO" textFill="WHITE">
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Label>
+      <Pane layoutX="442.0" layoutY="19.0" prefHeight="620.0" prefWidth="442.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <Label fx:id="testlaba" layoutX="21.0" layoutY="204.0" prefHeight="84.0" prefWidth="409.0" text="Label">
+               <font>
+                  <Font name="Candara Light" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="37.0" text="INFORMATION">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="158.0" text="Specialitee :">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="286.0" text="Descripction :">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="403.0" text="Local :">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="502.0" text="Tel :">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="testlaba1" layoutX="18.0" layoutY="322.0" prefHeight="84.0" prefWidth="409.0" text="Label">
+               <font>
+                  <Font name="Candara Light" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="local" layoutX="19.0" layoutY="445.0" prefHeight="62.0" prefWidth="409.0" text="Label">
+               <font>
+                  <Font name="Candara Light" size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="tel" layoutX="21.0" layoutY="545.0" prefHeight="62.0" prefWidth="409.0" text="Label">
+               <font>
+                  <Font name="Candara Light" size="28.0" />
+               </font>
+            </Label>
+            <WebView fx:id="infopage" layoutX="-14.0" layoutY="123.0" prefHeight="543.0" prefWidth="482.0" />
+         </children></Pane>
+      <Pane layoutX="912.0" layoutY="414.0" prefHeight="360.0" prefWidth="386.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <VBox prefHeight="362.0" prefWidth="385.0">
+               <children>
+                  <WebView fx:id="mapview" prefHeight="365.0" prefWidth="386.0" />
+               </children>
+            </VBox>
+         </children></Pane>
+      <Pane layoutX="910.0" layoutY="26.0" prefHeight="363.0" prefWidth="391.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <VBox alignment="CENTER" layoutX="2.0" layoutY="1.0" prefHeight="363.0" prefWidth="391.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="391.0" text="scanner la QRcode">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgqrcode" fitHeight="323.0" fitWidth="387.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="3.0" top="3.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../img/ic_stopwatch.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children></Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="104.0" text="BIENVENUE" textFill="WHITE">
+         <font>
+            <Font name="Bell MT" size="61.0" />
+         </font>
+      </Label>
+      <Pane layoutX="441.0" layoutY="664.0" prefHeight="107.0" prefWidth="441.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <Button fx:id="addcomnt" layoutX="4.0" layoutY="54.0" mnemonicParsing="false" onAction="#evcommnt" prefHeight="45.0" prefWidth="433.0" style="-fx-background-color: #0063ff; -fx-background-radius: 10;" text="Ajouter un Commenter" textFill="WHITE" />
+            <Label layoutX="166.0" layoutY="14.0" text="Commenter">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Button layoutX="22.0" layoutY="762.0" mnemonicParsing="false" onAction="#infobtn" style="-fx-background-radius: 70;" text="?" />
+      <Button layoutX="59.0" layoutY="763.0" mnemonicParsing="false" onAction="#backtoo" style="-fx-background-radius: 70;" text="&lt;" />
+   </children>
+</AnchorPane>

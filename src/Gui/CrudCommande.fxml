@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.CrudCommandeController">
+   <children>
+      <ImageView fitHeight="822.0" fitWidth="948.0" layoutX="-387.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backGround2.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="39.0" layoutY="167.0" prefHeight="279.0" prefWidth="83.0" spacing="38.0">
+         <children>
+            <Label text="Num" textFill="#fcfcfc">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label text="Date" textFill="#fcfaf8">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label text="PLAT" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="22.0" />
+               </font>
+            </Label>
+            <Label prefHeight="34.0" prefWidth="57.0" text="paye" textFill="#fffefe">
+               <font>
+                  <Font name="Impact" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="134.0" layoutY="159.0" prefHeight="259.0" prefWidth="273.0" spacing="35.0">
+         <children>
+            <TextField fx:id="tfNum" prefHeight="22.0" prefWidth="273.0" stylesheets="@../values/CrudCommande.css" />
+            <DatePicker fx:id="dDate" prefHeight="25.0" prefWidth="273.0" />
+            <TextField fx:id="tfEtat" prefHeight="29.0" prefWidth="273.0" />
+            <CheckBox fx:id="ckPaye" mnemonicParsing="false" />
+         </children>
+      </VBox>
+      <TableView fx:id="tvCommandes" layoutX="444.0" layoutY="89.0" prefHeight="723.0" prefWidth="606.0" stylesheets="@../values/CrudCommande.css">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="62.0" text="ID" />
+          <TableColumn fx:id="colNUM" prefWidth="73.0" text="NUM" />
+            <TableColumn fx:id="colDATE" prefWidth="163.0" text="DATE" />
+            <TableColumn fx:id="colETAT" minWidth="0.0" prefWidth="221.0" text="PLAT" />
+            <TableColumn fx:id="colPAYE" prefWidth="125.0" text="PAYE" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjouter" layoutX="14.0" layoutY="437.0" mnemonicParsing="false" onAction="#ajouterCommande" prefHeight="239.0" prefWidth="95.0" />
+      <Button fx:id="btnSupprimer" layoutX="271.0" layoutY="535.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="52.0" prefWidth="149.0" />
+      <TextField fx:id="tfFilter" layoutX="444.0" layoutY="37.0" onAction="#Filtrer" prefHeight="28.0" prefWidth="597.0" />
+      <Button fx:id="btnImprimer" layoutX="115.0" layoutY="535.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="140.0" prefWidth="149.0">
+         <graphic>
+            <FontAwesomeIconView fill="#8b09ee" glyphName="PRINT" size="60" wrappingWidth="53.71428680419922" />
+         </graphic></Button>
+      <ToggleButton fx:id="btnClose" layoutX="11.0" layoutY="6.0" mnemonicParsing="false" onAction="#close" prefHeight="28.0" prefWidth="42.0" style="-fx-background-radius: 50; -fx-background-color: white;" textFill="#0a0a0a">
+         <graphic>
+            <FontAwesomeIconView fill="#ff0202" glyphName="REMOVE" size="50" wrappingWidth="39.28571319580078" />
+         </graphic></ToggleButton>
+      <FontAwesomeIconView fill="#329a4e" glyphName="PLUS" layoutX="37.0" layoutY="560.0" size="60" wrappingWidth="49.14285659790039" />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="1016.0" layoutY="58.0" size="21" />
+      <Button fx:id="btnModifier" layoutX="115.0" layoutY="439.0" mnemonicParsing="false" onAction="#modifierCommande" prefHeight="85.0" prefWidth="305.0">
+         <graphic>
+            <FontAwesomeIconView fill="#3b60cc" glyphName="ROTATE_LEFT" size="60" text="" wrappingWidth="51.42856979370117" />
+         </graphic>
+      </Button>
+      <Button fx:id="btnSupprimer1" layoutX="271.0" layoutY="593.0" mnemonicParsing="false" onAction="#supprimerCommande" prefHeight="85.0" prefWidth="149.0" />
+      <FontAwesomeIconView fill="#d00505" glyphName="TRASH" layoutX="331.0" layoutY="571.0" size="30" wrappingWidth="28.14285659790039" />
+      <FontAwesomeIconView fill="#cd762b" glyphName="PIE_CHART" layoutX="325.0" layoutY="649.0" size="40" />
+   </children>
+</AnchorPane>

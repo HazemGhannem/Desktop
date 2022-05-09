@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.CrudPackController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="294.0" fitWidth="302.0" layoutX="105.0" layoutY="383.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sushi_PNG9267.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="BTNUpdate" layoutX="205.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonUpdate" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Modifier" />
+      <Button fx:id="BTNDelete" layoutX="660.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonDelete" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Supprimer" />
+      <Button fx:id="BTNAdd" layoutX="40.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonAdd" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter" />
+      <Label layoutX="358.0" layoutY="46.0" text="Gestion des packs" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="70.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFSearch" layoutX="384.0" layoutY="179.0" prefHeight="31.0" prefWidth="541.0" promptText="Search" />
+      <Button fx:id="BTNReset" layoutX="886.0" layoutY="640.0" mnemonicParsing="false" onAction="#HundilButtonReset" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Reset" />
+      <Label layoutX="77.0" layoutY="194.0" prefHeight="21.0" prefWidth="84.0" text="Type">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFType" layoutX="76.0" layoutY="225.0" promptText="Type" />
+      <TextField fx:id="TFPrix" layoutX="76.0" layoutY="297.0" promptText="Prix" />
+      <Text layoutX="77.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFDescription" layoutX="76.0" layoutY="364.0" promptText="Description" />
+      <Text layoutX="78.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TableView fx:id="TVPack" layoutX="386.0" layoutY="256.0" onMouseClicked="#GetSelectPack" prefHeight="305.0" prefWidth="548.0">
+         <columns>
+            <TableColumn fx:id="COLType" prefWidth="174.0" text="Type" />
+            <TableColumn fx:id="COLPrix" prefWidth="176.0" text="Prix" />
+            <TableColumn fx:id="COLDescription" prefWidth="196.0" text="Description" />
+         </columns>
+      </TableView>
+      <TextField fx:id="TFId" editable="false" layoutX="639.0" layoutY="34.0" opacity="0.0" />
+      <Button fx:id="back" layoutX="68.0" layoutY="75.0" mnemonicParsing="false" onAction="#accueil" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Accueil" />
+      <Button fx:id="statistique" layoutX="215.0" layoutY="76.0" mnemonicParsing="false" onAction="#statistique" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Statistique" />
+   </children>
+</AnchorPane>

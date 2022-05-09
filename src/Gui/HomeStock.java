@@ -77,7 +77,7 @@ public class HomeStock implements Initializable {
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("Item.fxml"));
                 HBox hbox= fxmlloader.load();
-                ItemController itemcontroller = fxmlloader.getController();
+                ItemmController itemcontroller = fxmlloader.getController();
                 itemcontroller.SetdataStock((Stock.get(i)));
                   itemcontroller.getbtn().setOnAction(new EventHandler() {
                      @Override

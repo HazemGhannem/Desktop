@@ -17,13 +17,20 @@ import javafx.stage.Stage;
  * @author Hazem
  */
 public class JavaFixAuth extends Application {
+
     public static int loggedInID;
     public static int RestpasswordID;
+    public static final String CURRENCY = "$";
+    public static final String CURRENCY1 = "%";
+
     @Override
     public void start(Stage primaryStage) {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Gui/Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Gui/login.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("/views/market.fxml"));
+            //  Parent root = FXMLLoader.load(getClass().getResource("/view/MainPane.fxml"));
+            // Parent root = FXMLLoader.load(getClass().getResource("/view/MainPane_1.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -37,10 +44,7 @@ public class JavaFixAuth extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-     
-     
-        
-        
+
 //        User d =new User("ay","+21699999999","hazem@e.e","haze123","image");
 //        User f =new User(5,"dude","+21611111111","b@b.b","hazem123","image");
 //        ServiceUser serv = new ServiceUser();
@@ -49,8 +53,6 @@ public class JavaFixAuth extends Application {
         //System.out.println(serv.getById(5));
         //serv.modifier(f);
 //        serv.supprimer(f);
-        
-        
     }
-    
+
 }

@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -25,6 +26,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -57,6 +60,10 @@ public class ProfileController implements Initializable {
     private TextField userna;
     @FXML
     private Button refresh;
+    @FXML
+    private Button plat;
+    @FXML
+    private Button promotion;
 
     /**
      * Initializes the controller class.
@@ -99,11 +106,11 @@ public class ProfileController implements Initializable {
         String p = password.getText();
         if (cp.equals(p)) {
             String password = DigestUtils.md5Hex(p);
-            String path =  userService.getById().getImage();
-            User use = new User(loggedInID, u, ph, e, password,path );
+            String path = userService.getById().getImage();
+            User use = new User(loggedInID, u, ph, e, password, path);
             userService.modifier(use);
             succes();
-           
+
             System.out.println("done");
         } else {
             Passaleart();
@@ -122,7 +129,8 @@ public class ProfileController implements Initializable {
 
         alert.showAndWait();
     }
-     private void succes() {
+
+    private void succes() {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Done");
         alert.setHeaderText("Results:");
@@ -133,7 +141,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void refresh(ActionEvent event) {
-         userService = new ServiceUser();
+        userService = new ServiceUser();
         User user = userService.getById();
         String path = "/Image/" + userService.getById().getImage();
         Image image = new Image(getClass().getResourceAsStream(path));
@@ -145,7 +153,38 @@ public class ProfileController implements Initializable {
         System.out.println(loggedInID);
         System.out.println(loggedInID);
         System.out.println("yo");
-        
+
+    }
+
+    @FXML
+    private void platlist(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("market.fxml"));
+            plat.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void promotionlist(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ListProm.fxml"));
+            promotion.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void lresto(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/views/market.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
     }
 
 }

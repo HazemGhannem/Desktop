@@ -1,0 +1,150 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Services;
+
+import entities.Categorie;
+import entities.Plat;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import Utils.DataSource;
+
+/**
+ *
+ * @author Pc
+ */
+public class CategorieService implements Iservice<Categorie>{
+
+    Connection connection;
+    public CategorieService() {
+        connection =  DataSource.getInstance().getCnx();
+    }
+
+    public void ajouter(Categorie t) {
+        try {
+            connection =  DataSource.getInstance().getCnx();
+//            String req = "insert into personne(nom,prenom,age) "
+//                    + "values('"+ t.getNom()+"','"+ t.getPrenom()+"',"+ t.getAge()+")";
+//            Statement st = connection.createStatement();
+//            st.executeUpdate(req);
+            
+            
+            String req1 = "insert into Categorie (nom,description,image) values (?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(req1);
+            ps.setString(1, t.getNom());
+            ps.setString(2, t.getDesc());
+            ps.setString(3, t.getImg());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void modifier(Categorie t) {
+         try {
+            connection =  DataSource.getInstance().getCnx();
+//            String req = "insert into personne(nom,prenom,age) "
+//                    + "values('"+ t.getNom()+"','"+ t.getPrenom()+"',"+ t.getAge()+")";
+//            Statement st = connection.createStatement();
+//            st.executeUpdate(req);
+            
+            
+            String req1 = "UPDATE categorie SET nom=?, description=? , image=? WHERE id=?";
+            PreparedStatement ps = connection.prepareStatement(req1);
+            ps.setString(1, t.getNom());
+            ps.setString(2, t.getDesc());
+            ps.setString(3, t.getImg());
+            ps.setInt(4, t.getId());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void supprimer(int id) {
+       try {
+            connection =  DataSource.getInstance().getCnx();
+//            String req = "insert into personne(nom,prenom,age) "
+//                    + "values('"+ t.getNom()+"','"+ t.getPrenom()+"',"+ t.getAge()+")";
+//            Statement st = connection.createStatement();
+//            st.executeUpdate(req);
+            
+            
+            String req1 = "DELETE FROM categorie WHERE id=?";
+            PreparedStatement ps = connection.prepareStatement(req1);
+            
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public List<Categorie> recuperer() {
+        List<Categorie> list =new ArrayList<>();
+        try {
+            String req = "select * from categorie";
+            Statement st = connection.createStatement();
+            ResultSet rs =st.executeQuery(req);
+            
+            while(rs.next()){
+                Categorie p = new Categorie();
+                p.setId(rs.getInt("id"));
+                p.setNom(rs.getString("nom"));
+                p.setDesc(rs.getString("description"));
+                p.setImg(rs.getString("image"));  
+                list.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return list;
+    }
+    
+    public  Categorie GetById(int id) {
+        return recuperer().stream().filter(e -> e.getId() == id).findFirst().get();
+
+    }
+    
+    public int getIdByCategoryName(String nom) {
+
+	int idc = 0;
+
+	try {
+	    String request = "select id from categorie where nom like ?";
+	    PreparedStatement st = connection.prepareStatement(request);
+	    st.setString(1, nom);
+	    ResultSet rs = st.executeQuery();
+	    while (rs.next()) {
+		idc = rs.getInt(1);
+	    }
+	} catch (SQLException ex) {
+	    System.err.println(ex.getMessage());
+	}
+
+	return idc;
+    }
+
+    @Override
+    public List<Categorie> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void supprimer(Categorie t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+}

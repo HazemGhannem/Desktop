@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AjoutCategController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="-1.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="498.0" fitWidth="803.0" layoutX="380.0" layoutY="199.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/fried_egg_PNG87.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="258.0" fitWidth="341.0" layoutX="70.0" layoutY="150.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/yes.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="292.0" layoutY="57.0" text="Ajouter une Categorie" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="70.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="178.0" layoutY="226.0" prefHeight="64.0" prefWidth="293.0" promptText="Nom" />
+      <TextField fx:id="description" layoutX="178.0" layoutY="301.0" prefHeight="64.0" prefWidth="293.0" promptText="description" />
+      <TextField fx:id="image" layoutX="178.0" layoutY="376.0" prefHeight="64.0" prefWidth="259.0" promptText="Image" />
+      <Button layoutX="239.0" layoutY="478.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="45.0" prefWidth="113.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter" />
+      <Button fx:id="non" layoutX="358.0" layoutY="478.0" mnemonicParsing="false" onAction="#Afficher" prefHeight="45.0" prefWidth="113.0" styleClass="shadow" stylesheets="@../values/style.css" text="Afficher" />
+      <Button layoutX="655.0" layoutY="487.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="173.0" styleClass="shadow" stylesheets="@../values/style.css" text="ajouter une image" />
+      <ImageView fx:id="img" fitHeight="231.0" fitWidth="222.0" layoutX="630.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/non.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="back" layoutX="59.0" layoutY="76.0" mnemonicParsing="false" onAction="#accueil" prefHeight="64.0" prefWidth="173.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Accueil" />
+   </children>
+</AnchorPane>

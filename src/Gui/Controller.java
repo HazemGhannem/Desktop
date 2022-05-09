@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -46,6 +47,8 @@ public class Controller implements Initializable {
     @FXML
     private Button btnSignout;
     @FXML
+    private Button btnEvents;
+    @FXML
     private Pane pnlCustomer;
     @FXML
     private Pane pnlOrders;
@@ -56,86 +59,121 @@ public class Controller implements Initializable {
     @FXML
     private VBox pnItems;
 
-     ServiceUser userService = new ServiceUser();;
-     ArrayList<User> user =new ArrayList<>();
+    ServiceUser userService = new ServiceUser();
+    ;
+     ArrayList<User> user = new ArrayList<>();
     @FXML
     private Button btnStock;
     @FXML
     private Button logout;
-      
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        user= (ArrayList<User>) userService.getAll();
+        user = (ArrayList<User>) userService.getAll();
         for (int i = 0; i < user.size(); i++) {
             try {
                 //System.out.println(user.get(i));
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("Item.fxml"));
-                HBox hbox= fxmlloader.load();
-                ItemController itemcontroller = fxmlloader.getController();
+                HBox hbox = fxmlloader.load();
+                ItemmController itemcontroller = fxmlloader.getController();
                 itemcontroller.Setdata(user.get(i));
                 itemcontroller.getbtn().setOnAction(new EventHandler() {
-                     @Override
+                    @Override
                     public void handle(Event event) {
                         itemcontroller.Delete();
-                        
+
                     }
                 });
-                 itemcontroller.getbann().setOnAction(new EventHandler() {
-                     @Override
+                itemcontroller.getbann().setOnAction(new EventHandler() {
+                    @Override
                     public void handle(Event event) {
                         itemcontroller.bann();
                     }
                 });
-                 itemcontroller.getunbann().setOnAction(new EventHandler() {
-                     @Override
+                itemcontroller.getunbann().setOnAction(new EventHandler() {
+                    @Override
                     public void handle(Event event) {
                         itemcontroller.unbann();
                     }
                 });
-                
-                
-                
-                
+
                 pnItems.getChildren().add(hbox);
-                
+
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
         }
-    }    
+    }
 
     @FXML
-    private void handleClicks(ActionEvent event) {
+    private void handleClicks(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setWidth(580);
+        stage.setHeight(490);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
     }
 
     @FXML
     private void Stock(ActionEvent event) throws IOException {
         AnchorPane root = FXMLLoader.load(getClass().getResource("HomeStock.fxml"));
-                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setWidth(1050);
-                stage.setHeight(576);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setWidth(1050);
+        stage.setHeight(576);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
     }
 
     @FXML
     private void logout(ActionEvent event) throws IOException {
-          AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-                Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setWidth(1050);
-                stage.setHeight(576);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
+        AnchorPane root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setWidth(1050);
+        stage.setHeight(576);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+    @FXML
+    private void btnompl(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/view/MainPane.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+    @FXML
+    private void btnresto(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/view/MainPane_1.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
+    }
+
+    @FXML
+    private void showEventsList(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Gui/EventsList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
     }
 }
-    
-

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.CrudCouponController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="319.0" fitWidth="385.0" layoutX="55.0" layoutY="386.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/580b57fcd9996e24bc43c1a8.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="376.0" layoutY="48.0" text="Gestion des Coupons" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="70.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="169.0" prefHeight="21.0" prefWidth="84.0" text="Nom">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFNom" layoutX="76.0" layoutY="200.0" promptText="Nom" />
+      <Text layoutX="77.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datedebut">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFCode" layoutX="76.0" layoutY="272.0" promptText="Code " />
+      <Text layoutX="77.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pourcentage">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFPourcentage" layoutX="76.0" layoutY="339.0" promptText="Pourcentage" />
+      <DatePicker fx:id="DPDatedebut" layoutX="76.0" layoutY="417.0" promptText="Datedebut" />
+      <DatePicker fx:id="DPDatefin" layoutX="76.0" layoutY="492.0" promptText="Datefin" />
+      <Text layoutX="78.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code ">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="75.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datefin">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TFSearch" layoutX="454.0" layoutY="189.0" prefHeight="31.0" prefWidth="428.0" promptText="Search" />
+      <TableView fx:id="TVCoupon" layoutX="439.0" layoutY="249.0" onMouseClicked="#GetSelectCoupon" prefHeight="355.0" prefWidth="541.0">
+         <columns>
+            <TableColumn fx:id="COLNom" prefWidth="102.0" text="Nom" />
+            <TableColumn fx:id="COLCode" prefWidth="81.0" text="Code " />
+            <TableColumn fx:id="COLPourcentage" prefWidth="122.0" text="Pourcentage" />
+            <TableColumn fx:id="COLDatedebut" prefWidth="110.0" text="Datedebut" />
+            <TableColumn fx:id="COLDatefin" prefWidth="125.0" text="Datefin" />
+         </columns>
+      </TableView>
+      <Button fx:id="BTNAdd" layoutX="50.0" layoutY="650.0" mnemonicParsing="false" onAction="#HundilButtonAdd" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter" />
+      <Button fx:id="BTNUpdate" layoutX="215.0" layoutY="650.0" mnemonicParsing="false" onAction="#HundilButtonUpdate" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Modifier" />
+      <Button fx:id="BTNDelete" layoutX="670.0" layoutY="650.0" mnemonicParsing="false" onAction="#HundilButtonDelete" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Supprimer" />
+      <Button fx:id="BTNReset" layoutX="896.0" layoutY="650.0" mnemonicParsing="false" onAction="#HundilButtonReset" prefHeight="61.0" prefWidth="116.0" styleClass="shadow" stylesheets="@../values/style.css" text="Reset" />
+      <TextField fx:id="TFId" editable="false" layoutX="643.0" layoutY="17.0" opacity="0.0" />
+      <Button fx:id="back" layoutX="68.0" layoutY="75.0" mnemonicParsing="false" onAction="#accueil" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Accueil" />
+      <Button fx:id="statistique" layoutX="215.0" layoutY="76.0" mnemonicParsing="false" onAction="#statistique" prefHeight="64.0" prefWidth="116.0" styleClass="chosen-fruit-card" stylesheets="@../values/style.css" text="Statistique" />
+   </children>
+</AnchorPane>

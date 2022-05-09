@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" style="-fx-background-color: fef0d2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AccueilController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1080.0" layoutX="-1.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/nnf.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="314.0" fitWidth="744.0" layoutX="166.0" layoutY="366.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/fried_egg_PNG87.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="376.0" fitWidth="513.0" layoutX="609.0" layoutY="147.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/yes.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="241.0" fitWidth="287.0" layoutX="641.0" layoutY="454.0" opacity="0.21" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/sushi_PNG9267.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="342.0" fitWidth="479.0" layoutX="46.0" layoutY="171.0" opacity="0.24" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/5b8ed938a639e004e1cab569%20(1).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="a" layoutX="166.0" layoutY="331.0" mnemonicParsing="false" onAction="#affplat" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Afficher vos plats" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="c" layoutX="166.0" layoutY="501.0" mnemonicParsing="false" onAction="#affcateg" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Afficher vos categorie" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="b" layoutX="166.0" layoutY="414.0" mnemonicParsing="false" onAction="#ajoutplat" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter un plat" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="d" layoutX="166.0" layoutY="587.0" mnemonicParsing="false" onAction="#ajoutcateg" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Ajouter une categorie" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Label layoutX="307.0" layoutY="14.0" prefHeight="59.0" prefWidth="465.0" text="Bienvenue Sur FLYFOOD" textFill="#ffa100">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img" fitHeight="89.0" fitWidth="117.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="a2" layoutX="641.0" layoutY="334.0" mnemonicParsing="false" onAction="#coupon" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion des coupons" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="c2" layoutX="641.0" layoutY="504.0" mnemonicParsing="false" onAction="#promotion" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion des promotions" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="b2" layoutX="641.0" layoutY="417.0" mnemonicParsing="false" onAction="#pack" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion de packs" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="b21" layoutX="641.0" layoutY="587.0" mnemonicParsing="false" onAction="#packs" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Packs" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="alaPanier" layoutX="158.0" layoutY="233.0" mnemonicParsing="false" onAction="#affichePanier" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Afficher votre panier" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="alaLivraison" layoutX="158.0" layoutY="155.0" mnemonicParsing="false" onAction="#livraisons" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion Livraison" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="alaCommande" layoutX="158.0" layoutY="73.0" mnemonicParsing="false" onAction="#commandes" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion Commandes" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="home" layoutX="649.0" layoutY="247.0" mnemonicParsing="false" onAction="#home" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="HOME" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="home1" layoutX="634.0" layoutY="162.0" mnemonicParsing="false" onAction="#gestionem" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion employer" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="home11" layoutX="634.0" layoutY="73.0" mnemonicParsing="false" onAction="#gresto" prefHeight="71.0" prefWidth="317.0" styleClass="shadow" stylesheets="@../values/style.css" text="Gestion Resto" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

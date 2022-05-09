@@ -3,16 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/RegisterController.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/Codes.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/Plat.fxml</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/javafixauth/JavaFixAuth.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/market.fxml</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/javafixauth/MyListener2.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/ProfileController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/Sservice.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/FXMLController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/CartView.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/entities/Livraison.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/RegisterController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/entities/Commande.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/Codes.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/LoginController.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/Controller.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/io/github/devalves/osms/core/CountryCode.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/ProfileController.java</file>
+            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/javafixauth/MyListener1.java</file>
             <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Services/ServiceUser.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Models/User.java</file>
-            <file>file:/C:/Users/Hazem/Documents/NetBeansProjects/JavaFixAuth/src/Gui/FXMLController.java</file>
         </group>
     </open-files>
 </project-private>
